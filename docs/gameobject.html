@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <title>Verbkit Docs - GameObject</title>
+
+        <link rel="stylesheet" href="../stylesheets/styles.css">
+        <link rel="stylesheet" href="../stylesheets/github-light.css">
+        
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+        
+        <meta name="viewport" content="width=device-width">
+        <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="wrapper">
+            <header>
+                <h1>Verbkit - GameObject.ts</h1>
+                <p class="view"><a href="https://github.com/everette00/verbkit">View the Project on GitHub <small>everette00/verbkit</small></a></p>
+                <div style="margin-top: 1rem;">
+                    <h4 style="line-height: .1rem;">Docs</h4>
+                    <a href="http://everette00.github.io/verbkit/docs/game.html">Game</a><br/>
+                    <a href="http://everette00.github.io/verbkit/docs/camera.html">Camera</a><br/>
+                    <a href="http://everette00.github.io/verbkit/docs/gameobject.html">GameObject</a><br/>
+                    <a href="http://everette00.github.io/verbkit/docs/collectable.html">Collectable</a><br/>
+                    <a href="http://everette00.github.io/verbkit/docs/interactable.html">Interactable</a><br/>
+                    <a href="http://everette00.github.io/verbkit/docs/boundary.html">Boundary</a><br/>
+                </div>
+            </header>
+            <section>
+                <h3>Overview</h3>
+                <p>This script defines the basis of what a game object is. Properties such as gravity, collision and so on are applied here. This is a very powerful concept, as it allows you to craft game objects with a large degree of control. For example, maybe you have to have the player interact with all of the crates in the game; or that you want all coins to interact with players.</p> 
+                <p>While these are simple, irrefutable concepts in any game, the functions contained within the GameObject class allow a statement to become the golden rule, instead of requiring you to write tedious code</p>
+                
+                <p>Along side of the GameObject class are some key offspring classes. Particularly there are two classes that are necessary for most games - Player and NPC</p>
+                
+                <h3>Classes</h3>
+                <h4>GameObject</h4>
+                    <code class="prettyprint"><h4>constructor(name:string, type:string, imageFile:string)</h4></code>
+                    <p>Creates the game object. Requires a name and type keys and file name of an image to render.</p>
+                    <p>"name" and "type" are arbitrary - these are for various systems to use so they can interact with game objects -- either an individual game object or all particular game objects (such as all "crates"). "imageFile" is an image that will be located in the html folder of your final build.</p><br/>
+                
+                    <code class="prettyprint lang-javascript"><h4>function hasGravity(gravity:number = 9):GameObject</h4></code>
+                    <p>Applies a gravitation pull on an object. This is completely optional and the value you wish to apply is your choice too.</p>
+                
+                    <code class="prettyprint lang-javascript">
+                        <code class="nocode">// index.ts</code><br/>
+                        var crate:GameObject = new GameObject("badass", "Crate", "img/crate.png");<br/>
+                        crate.hasGravity(9);
+                    </code><br/><br/>
+                    <p>The above will apply a gravitation pull on the object, which will move the object downwards 9 pixels every update.</p><br/>
+                
+                    <code class="prettyprint lang-javascript"><h4>function collidesWith(name:string):GameObject</h4></code>
+                    <p>Used to create a list of game objects that you would like this game object to collide with.</p>
+                    <code class="prettyprint lang-javascript">
+                        <code class="nocode">// index.ts</code><br/>
+                        var crate:GameObject = new GameObject("badass", "Crate", "img/crate.png");<br/>
+                        var ball:GameOBject = new GameObject("red", "Ball", "img/ball.png");<br/>
+                        crate.collidesWith("red");
+                    </code><br/><br/>
+                    <p>Now the crate and any ball named "red" will collide.</p><br/>
+                
+                    <code class="prettyprint lang-javascript"><h4>function collidesWithAll(objectType:string):GameObject</h4></code>
+                    <p>Similar to the collidesWith function, but works on all types of a particular object.</p>
+                    <code class="prettyprint lang-javascript">
+                        <code class="nocode">// index.ts</code><br/>
+                        var crate:GameObject = new GameObject("badass", "Crate", "img/crate.png");<br/>
+                        var ball:GameOBject = new GameObject("red", "Ball", "img/ball.png");<br/>
+                        crate.collidesWithAll("Ball");
+                    </code><br/><br/>
+                    <p>Now the crate will collide with all types "Ball".</p><br/>
+                
+                    <code class="prettyprint lang-javascript"><h4>function update():void</h4></code>
+                    <p>Handles the updating logic of the game object. Modify this if you would like to add your own custom update logic.</p>
+                
+                
+                <h4>Player</h4>
+                    <code class="prettyprint lang-javascript"><h4>function hasKeyMovement(x:number, y:number, withKey:number):Player</h4></code>
+                    <p>Adds to a list of "input movements" that allow the game to know that when a key has been pressed to move the player.</p>
+                    <code class="prettyprint lang-javascript">
+                        <code class="nocode">// index.ts</code><br/>
+                        var player:Player = new Player("badass", "img/player.png");<br/>
+                        player.hasKeyMovement(-3, 0, Keys.left);<br/>
+                        player.hasKeyMovement(3, 0, Keys.right);<br/>
+                        player.hasKeyMovement(0, -3, Keys.up);<br/>
+                        player.hasKeyMovement(0, 3, Keys.down);
+                    </code><br/><br/>
+                    <p>Will move "player" in four different directions using the up, down, left and right keys.</p><br/>
+                <h4>NPC</h4>
+            </section>
+            <footer>
+                <p>This project is maintained by <a href="https://github.com/everette00">everette00</a></p>
+                <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+            </footer>
+        </div>
+        <script src="javascripts/scale.fix.js"></script>
+
+    </body>
+</html>

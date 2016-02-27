@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <title>Verbkit Docs - Game</title>
+
+        <link rel="stylesheet" href="../stylesheets/styles.css">
+        <link rel="stylesheet" href="../stylesheets/github-light.css">
+        
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+        
+        <meta name="viewport" content="width=device-width">
+        <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="wrapper">
+            <header>
+                <h1>Verbkit - Game.ts</h1>
+                <p class="view"><a href="https://github.com/everette00/verbkit">View the Project on GitHub <small>everette00/verbkit</small></a></p>
+                <div style="margin-top: 1rem;">
+                    <h4 style="line-height: .1rem;">Docs</h4>
+                    <a href="https://github.com/everette00/verbkit/docs/game.html">Game</a><br/>
+                    <a href="https://github.com/everette00/verbkit/docs/camera.html">Camera</a><br/>
+                    <a href="https://github.com/everette00/verbkit/docs/gameobject.html">GameObject</a><br/>
+                    <a href="https://github.com/everette00/verbkit/docs/collectable.html">Collectable</a><br/>
+                    <a href="https://github.com/everette00/verbkit/docs/interactable">Interactable</a><br/>
+                    <a href="https://github.com/everette00/verbkit/docs/boundary">Boundary</a><br/>
+                </div>
+            </header>
+            <section>
+                <h3>Overview</h3>
+                <p>This is, for all intents and purposes, the starting point of your game. From here, your game will update levels and render their contents. One function in particular to use from this script is the "hasLevel" function - it is how you add levels to your game. Another notable function is the "level" function that will return a specified level.</p>
+                
+                <h3>Functions</h3>
+                
+                <code class="prettyprint lang-javascript"><h4>function hasLevel(levelName:string, width:number, height:number):Level</h4></code>
+                <p>This will add a new level to the list of all levels in your game and will return that level. From here, you can choose to chain functions contained within the Level class to define further properties of your level, such as what is inside of it.</p>
+                <p>Say that we wanted to create a new level that is really large and really tall. We want this level to be a part of a platformer, and the typical size of assets are something like 32x32 pixels. So to create a level like the one we want, here is an example:</p>
+                <code class="prettyprint lang-javascript">
+                    <span class="nocode">// index.ts</span><br/>
+                    hasLevel("world-1", 16000, 4000);
+                </code><br/><br/>
+                <p>What this did was create a level titled "world-1", and it is 16000x4000 pixels in size. From here, maybe we want to add walls and floors? Or even collectables and enemies. The use of function chaining will allow you to easily, once a level has been created, begin tacking on content. Head over to the Level documentation to see the possibilities of adding content to a level.</p>
+                
+                <code class="prettyprint" style="margin-top: 1rem;"><h4>function level(levelName:string):Level</h4></code>
+                <p>This will return the specified level, allowing you to use it similarly to the function above - to add additional content to your level.</p> 
+                <p>If we were in some other script file and we wanted to access our "world-1" level, then we could do this:</p>
+                <code class="prettyprint lang-javascript">
+                    var world1:Level = level("world-1");<br/>
+                    <span class="nocode">// do some stuff here with world1</span>
+                </code>
+            </section>
+            <footer>
+                <p>This project is maintained by <a href="https://github.com/everette00">everette00</a></p>
+                <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+            </footer>
+        </div>
+        <script src="javascripts/scale.fix.js"></script>
+
+    </body>
+</html>
