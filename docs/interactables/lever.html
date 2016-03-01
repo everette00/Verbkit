@@ -3,10 +3,13 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="chrome=1">
-        <title>Verbkit Docs - Camera</title>
+        <title>Verbkit Docs - Lever</title>
 
-        <link rel="stylesheet" href="../stylesheets/styles.css">
-        <link rel="stylesheet" href="../stylesheets/github-light.css">
+        <link rel="stylesheet" href="../../stylesheets/styles.css">
+        <link rel="stylesheet" href="../../stylesheets/github-light.css">
+        
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+        
         <meta name="viewport" content="width=device-width">
         <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,7 +18,7 @@
     <body>
         <div class="wrapper">
             <header>
-                <h1>Verbkit - Camera.ts</h1>
+                <h1>Verbkit - Lever</h1>
                 <p class="view"><a href="https://github.com/everette00/verbkit">View the Project on GitHub <small>everette00/verbkit</small></a></p>
                 <div style="margin-top: 1rem;">
                     <h4 style="line-height: .1rem;">Docs</h4>
@@ -45,7 +48,22 @@
                 </div>
             </header>
             <section>
-                <p>A camera is for following an object around on worlds larger than the game viewport. There are many options for how the camera should follow an object.</p>
+                <h3>Overview</h3>
+                <p>A lever is for the intended interaction between the player and a object that can be "powered on" (an elevator, for example).</p>
+                
+                <p>Levers require some connectable item to connect to, and a key to press. You can connect doors, elevators and conveyor belts to any lever.</p>
+                
+                <h3>Example</h3>
+                <code class="prettyprint lang-javascript">
+                    <span class="nocode">// index.ts</span><br/>
+                    var lever:Lever = new Lever(300, 200, 32, 16);<br/>
+                    lever.connectTo(bossDoor);<br/>
+                    lever.interactsWith(Keys.enter);<br/>
+                    lever.usedBy(player);<br/><br/>
+                    
+                    level("somewhere").hasLever(lever);
+                </code><br/><br/>
+                <p>The above example did a few things: first, the lever was created at some point in space with 32x16 dimension; next, it was connected to some previously defined door; the key we expect the player to use this lever was set to the enter key; lastly the player was set to the specified user of this lever. We also added "lever" to some map. When the player makes his way through the game world and comes across this lever and activates it, the door to the boss will unlock and allow passage.</p>
             </section>
             <footer>
                 <p>This project is maintained by <a href="https://github.com/everette00">everette00</a></p>
