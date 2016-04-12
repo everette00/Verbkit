@@ -3,64 +3,13 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="chrome=1">
-        <title>Verbkit - A Game Development Toolkit</title>
+        <title>Verbkit Docs - Game</title>
 
-<<<<<<< HEAD
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
-    <meta name="viewport" content="width=device-width">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Verbkit</h1>
-<<<<<<< HEAD
-        <p>A toolkit for simplifying the development of 2D video games</p>
-
-<<<<<<< HEAD
-        <div>
-<<<<<<< HEAD
-            <h4 style="line-height: 1.2rem;">Docs</h4>
-=======
-            <h4 style="line-height: .5rem;">Docs</h4>
->>>>>>> gh-pages
-=======
-        <div style="line-height: 1rem;">
-=======
-        <div>
->>>>>>> gh-pages
-            <h4 style="line-height: .1rem;">Docs</h4>
->>>>>>> gh-pages
-            <a>GameObject</a><br/>
-            <a>Camera</a><br/>
-        </div>  
+        <link rel="stylesheet" href="../stylesheets/styles.css">
+        <link rel="stylesheet" href="../stylesheets/github-light.css">
         
-        <ul style="margin-top: 1rem;">
-          <li><a href="https://github.com/everette00/verbkit/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/everette00/verbkit/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/everette00/verbkit">View On <strong>GitHub</strong></a></li>
-        </ul>
-          
-          <p class="view"><a href="https://github.com/everette00/verbkit">View the Project on GitHub <small>everette00/verbkit</small></a></p>
-      </header>
-      <section>
-        <h3>Welcome to Verbkit</h3>
-        <p>Verbkit is a tool for simplifying the development of 2D Games.</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/everette00">everette00</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
-  </body>
-=======
-        <link rel="stylesheet" href="stylesheets/styles.css">
-        <link rel="stylesheet" href="stylesheets/github-light.css">
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+        
         <meta name="viewport" content="width=device-width">
         <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -69,7 +18,7 @@
     <body>
         <div class="wrapper">
             <header>
-                <h1>Verbkit</h1>
+                <h1>Verbkit - Game.ts</h1>
                 <p class="view"><a href="https://github.com/everette00/verbkit">View the Project on GitHub <small>everette00/verbkit</small></a></p>
                 <div style="margin-top: 1rem;">
                     <h4 style="line-height: .1rem;">Docs</h4>
@@ -99,9 +48,27 @@
                 </div>
             </header>
             <section>
-                <h3>Welcome to Verbkit - 2D Game Development Simplified</h3>
-                <p>Verbkit is a tool for simplifying the development of 2D games. Verbkit leverages Typescript and <a href="http://www.pixijs.com/">pixijs</a>
-                to remove much of the work needed to build a 2D game.</p>
+                <h3>Overview</h3>
+                <p>This is, for all intents and purposes, the starting point of your game. From here, your game will update levels and render their contents. One function in particular to use from this script is the "hasLevel" function - it is how you add levels to your game. Another notable function is the "level" function that will return a specified level.</p>
+                
+                <h3>Functions</h3>
+                
+                <code class="prettyprint lang-javascript"><h4>function hasLevel(levelName:string, width:number, height:number):Level</h4></code>
+                <p>This will add a new level to the list of all levels in your game and will return that level. From here, you can choose to chain functions contained within the Level class to define further properties of your level, such as what is inside of it.</p>
+                <p>Say that we wanted to create a new level that is really large and really tall. We want this level to be a part of a platformer, and the typical size of assets are something like 32x32 pixels. So to create a level like the one we want, here is an example:</p>
+                <code class="prettyprint lang-javascript">
+                    <span class="nocode">// index.ts</span><br/>
+                    hasLevel("world-1", 16000, 4000);
+                </code><br/><br/>
+                <p>What this did was create a level titled "world-1", and it is 16000x4000 pixels in size. From here, maybe we want to add walls and floors? Or even collectables and enemies. The use of function chaining will allow you to easily, once a level has been created, begin tacking on content. Head over to the Level documentation to see the possibilities of adding content to a level.</p>
+                
+                <code class="prettyprint" style="margin-top: 1rem;"><h4>function level(levelName:string):Level</h4></code>
+                <p>This will return the specified level, allowing you to use it similarly to the function above - to add additional content to your level.</p> 
+                <p>If we were in some other script file and we wanted to access our "world-1" level, then we could do this:</p>
+                <code class="prettyprint lang-javascript">
+                    var world1:Level = level("world-1");<br/>
+                    <span class="nocode">// do some stuff here with world1</span>
+                </code>
             </section>
             <footer>
                 <p>This project is maintained by <a href="https://github.com/everette00">everette00</a></p>
@@ -111,5 +78,4 @@
         <script src="javascripts/scale.fix.js"></script>
 
     </body>
->>>>>>> gh-pages
 </html>

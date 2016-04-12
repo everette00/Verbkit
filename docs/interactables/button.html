@@ -3,64 +3,13 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="chrome=1">
-        <title>Verbkit - A Game Development Toolkit</title>
+        <title>Verbkit Docs - Button</title>
 
-<<<<<<< HEAD
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
-    <meta name="viewport" content="width=device-width">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Verbkit</h1>
-<<<<<<< HEAD
-        <p>A toolkit for simplifying the development of 2D video games</p>
-
-<<<<<<< HEAD
-        <div>
-<<<<<<< HEAD
-            <h4 style="line-height: 1.2rem;">Docs</h4>
-=======
-            <h4 style="line-height: .5rem;">Docs</h4>
->>>>>>> gh-pages
-=======
-        <div style="line-height: 1rem;">
-=======
-        <div>
->>>>>>> gh-pages
-            <h4 style="line-height: .1rem;">Docs</h4>
->>>>>>> gh-pages
-            <a>GameObject</a><br/>
-            <a>Camera</a><br/>
-        </div>  
+        <link rel="stylesheet" href="../../stylesheets/styles.css">
+        <link rel="stylesheet" href="../../stylesheets/github-light.css">
         
-        <ul style="margin-top: 1rem;">
-          <li><a href="https://github.com/everette00/verbkit/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/everette00/verbkit/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/everette00/verbkit">View On <strong>GitHub</strong></a></li>
-        </ul>
-          
-          <p class="view"><a href="https://github.com/everette00/verbkit">View the Project on GitHub <small>everette00/verbkit</small></a></p>
-      </header>
-      <section>
-        <h3>Welcome to Verbkit</h3>
-        <p>Verbkit is a tool for simplifying the development of 2D Games.</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/everette00">everette00</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
-  </body>
-=======
-        <link rel="stylesheet" href="stylesheets/styles.css">
-        <link rel="stylesheet" href="stylesheets/github-light.css">
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+        
         <meta name="viewport" content="width=device-width">
         <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -69,7 +18,7 @@
     <body>
         <div class="wrapper">
             <header>
-                <h1>Verbkit</h1>
+                <h1>Verbkit - Button</h1>
                 <p class="view"><a href="https://github.com/everette00/verbkit">View the Project on GitHub <small>everette00/verbkit</small></a></p>
                 <div style="margin-top: 1rem;">
                     <h4 style="line-height: .1rem;">Docs</h4>
@@ -99,9 +48,21 @@
                 </div>
             </header>
             <section>
-                <h3>Welcome to Verbkit - 2D Game Development Simplified</h3>
-                <p>Verbkit is a tool for simplifying the development of 2D games. Verbkit leverages Typescript and <a href="http://www.pixijs.com/">pixijs</a>
-                to remove much of the work needed to build a 2D game.</p>
+                <h3>Overview</h3>
+                <p>A button is for the intended interaction between the player and a object that can be activated (an elevator, for example).</p>
+                
+                <p>Buttons require some connectable item to connect to. You can connect doors, elevators and conveyor belts to any button.</p>
+                
+                <h3>Example</h3>
+                <code class="prettyprint lang-javascript">
+                    <span class="nocode">// index.ts</span><br/>
+                    var button:Button = new Button(300, 200, 32, 16);<br/>
+                    button.connectTo(spaceElevator);<br/>
+                    button.usedBy(player);<br/><br/>
+                    
+                    level("somewhere").hasButton(button);
+                </code><br/><br/>
+                <p>The above example did a few things: first, the button was created at some point in space with 32x16 dimension; next, it was connected to some previously defined elevator; lastly the player was set to the specified presser of this button. We also added "button" to some map. When the player touches the button, the elevator will begin to shift to its secondary destination.</p>
             </section>
             <footer>
                 <p>This project is maintained by <a href="https://github.com/everette00">everette00</a></p>
@@ -111,5 +72,4 @@
         <script src="javascripts/scale.fix.js"></script>
 
     </body>
->>>>>>> gh-pages
 </html>
