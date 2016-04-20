@@ -109,6 +109,7 @@ a:hover small {
 
 .wrapper {
   width:860px;
+  overflow-y: scroll;
   margin:0 auto;
 }
 
