@@ -21,22 +21,43 @@
                 <h1>Verbkit - Level.ts</h1>
                 <p class="view"><a href="https://github.com/everette00/verbkit">View the Project on GitHub <small>everette00/verbkit</small></a></p>
                 <div style="margin-top: 1rem;">
-                    <h4 style="line-height: .1rem;">Docs</h4>
-                    <a href="https://github.com/everette00/verbkit/docs/game.html">Game</a><br/>
-                    <a href="https://github.com/everette00/verbkit/docs/camera.html">Camera</a><br/>
-                    <a href="https://github.com/everette00/verbkit/docs/gameobject.html">GameObject</a><br/>
-                    <a href="https://github.com/everette00/verbkit/docs/collectable.html">Collectable</a><br/>
-                    <a href="https://github.com/everette00/verbkit/docs/interactable.html">Interactable</a><br/>
-                    <a href="https://github.com/everette00/verbkit/docs/boundary.html">Boundary</a><br/>
+                     <h4 style="line-height: .1rem;">Docs</h4>
+                    <a href="http://everette00.github.io/verbkit/docs/game.html">Game</a><br/>
+                    <a href="http://everette00.github.io/verbkit/docs/camera.html">Camera</a><br/>
+                    <a href="http://everette00.github.io/verbkit/docs/level.html">Level</a><br/>
+                    <a href="http://everette00.github.io/verbkit/docs/gameobject.html">GameObject</a><br/>
+                    <a href="http://everette00.github.io/verbkit/docs/gameobjects/player.html" style="margin-left:1rem;">Player</a><br/>
+                    <a href="http://everette00.github.io/verbkit/docs/gameobjects/npc.html" style="margin-left:1rem;">NPC</a><br/>
+                    <a href="http://everette00.github.io/verbkit/docs/gameobjects/opponent.html" style="margin-left:1rem;">Opponent</a><br/>
+                    
+                    <a href="http://everette00.github.io/verbkit/docs/collectable.html">Collectable</a><br/>
+                    <a href="http://everette00.github.io/verbkit/docs/collectables/coin.html" style="margin-left:1rem;">Coin</a><br/>
+                    <a href="http://everette00.github.io/verbkit/docs/collectables/key.html" style="margin-left:1rem;">Key</a><br/>
+                    
+                    <a href="http://everette00.github.io/verbkit/docs/collidable.html">Collidable</a><br/>
+                    <a href="http://everette00.github.io/verbkit/docs/collidables/conveyorbelt.html" style="margin-left:1rem;">Conveyorbelt</a><br/>
+                    <a href="http://everette00.github.io/verbkit/docs/collidables/springboard.html" style="margin-left:1rem;">Springboard</a><br/>
+                    
+                    <a href="http://everette00.github.io/verbkit/docs/interactable.html">Interactable</a><br/>
+                    <a href="http://everette00.github.io/verbkit/docs/interactables/button.html" style="margin-left:1rem;">Button</a><br/>
+                    <a href="http://everette00.github.io/verbkit/docs/interactables/lever.html" style="margin-left:1rem;">Lever</a><br/>
+                    
+                    <a href="http://everette00.github.io/verbkit/docs/boundary.html">Boundary</a><br/>
+                    <a href="http://everette00.github.io/verbkit/docs/boundaries/wall.html" style="margin-left:1rem;">Wall</a><br/>
+                    <a href="http://everette00.github.io/verbkit/docs/boundaries/ceiling.html" style="margin-left:1rem;">Ceiling</a><br/>
+                    <a href="http://everette00.github.io/verbkit/docs/boundaries/platform.html" style="margin-left:1rem;">Platform</a><br/>
+                    <a href="http://everette00.github.io/verbkit/docs/boundaries/elevator.html" style="margin-left:1rem;">Elevator</a><br/>
                 </div>
             </header>
             <section>
                 <h3>Overview</h3>
-                <p>This script contains the logic defines what a level is, as well as how a level should be updated. For example, a level can be comprised of boundaries, enemies and collectables, but possibly none of those. There are various "has" functions inside of the class Level that will allow you to add specific objects to your level (hasWall, for example).</p>
+                <p>This script contains the logic defines what a level is, as well as how a level should be updated. For example, a level can be comprised of boundaries, enemies and collectables, 
+                    but possibly none of those. There are various "has" functions inside of the class Level that will allow you to add specific objects to your level (hasWall, for example).</p>
                 
                 <h3>Functions</h3>
                 <code class="prettyprint lang-javascript"><h4>function has(gameObject:GameObject):Level</h4></code>
-                <p>Adds a GameObject to the level and returns the level (for function chaining purposes). This could be something like an npc or a ball or even a crate. Here's an example of adding a non-playable friendly to a level. We won't do anything specific with this npc other than adding it to the level.</p>
+                <p>Adds a GameObject to the level and returns the level (for function chaining purposes). This could be something like an npc or a ball. 
+                    Here's an example of adding a non-playable friendly to a level. We won't do anything specific with this npc other than adding it to the level.</p>
                 <code class="prettyprint lang-javascript">
                     <span class="nocode">// index.ts</span><br/>
                     var friendly:NPC = new NPC("img/someFriendlyCharacter.png");
