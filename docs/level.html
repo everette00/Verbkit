@@ -55,17 +55,19 @@
                     but possibly none of those. There are various "has" functions inside of the class Level that will allow you to add specific objects to your level (hasWall, for example).</p>
                 
                 <h3>Functions</h3>
-                <code class="prettyprint lang-javascript"><h4>function has(gameObject:GameObject):Level</h4></code>
-                <p>Adds a GameObject to the level and returns the level (for function chaining purposes). This could be something like an npc or a ball. 
-                    Here's an example of adding a non-playable friendly to a level. We won't do anything specific with this npc other than adding it to the level.</p>
-                <code class="prettyprint lang-javascript">
-                    <span class="nocode">// index.ts</span><br/>
-                    var friendly:NPC = new NPC("img/someFriendlyCharacter.png");
-                    hasLevel("world-1").has(friendly);<br/><br/>
-                    
-                    <span class="nocode">// alternatively</span><br/>
-                    level("world-1").has(new NPC("img/anotherFriendly.png"));
-                </code><br/><br/><br/>
+                <div style="border-bottom:1px #505050; border-bottom-width: 90%;">
+                    <code class="prettyprint lang-javascript"><h4>function has(gameObject:GameObject):Level</h4></code>
+                    <p>Adds a GameObject to the level and returns the level (for function chaining purposes). This could be something like an npc or a ball. 
+                        Here's an example of adding a non-playable friendly to a level. We won't do anything specific with this npc other than adding it to the level.</p>
+                    <code class="prettyprint lang-javascript">
+                        <span class="nocode">// index.ts</span><br/>
+                        var friendly:NPC = new NPC("img/someFriendlyCharacter.png");
+                        hasLevel("world-1").has(friendly);<br/><br/>
+                        
+                        <span class="nocode">// alternatively</span><br/>
+                        level("world-1").has(new NPC("img/anotherFriendly.png"));
+                    </code>
+                </div>
                 
                 <code class="prettyprint lang-javascript"><h4>function hasWall(x:number, y:number, width:number, height:number):Level</h4></code>
                 <p>Adds a wall-boundary to the level and returns the level. For more information of walls and boundaries, head over to the boundary documentation.</p>
