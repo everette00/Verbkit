@@ -1,0 +1,5 @@
+div.code-block:not(:first-child) {
+    margin-top: 1rem;
+} div.code-block:not(:last-child) {
+    border-bottom: 1px solid #a0a0a0;
+}
