@@ -1,6 +1,7 @@
 /// <reference path="PixiTS/pixi.d.ts" />
 /// <reference path="utils.ts" />
 /// <reference path="gameobject.ts" />
+/// <reference path="boundary.ts" />
 
 class Collectable extends GameObject {
     collected:boolean = false;
