@@ -218,6 +218,7 @@ class Opponent extends NPC {
 
     chases(gameObject:GameObject) {
         this.target = gameObject;
+        return this;
     }
 
     viewDistance(distance:number) { this.activeDistance = distance; }

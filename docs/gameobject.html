@@ -62,13 +62,21 @@
                     <div class="code-block">
                         <code class="prettyprint"><h4>constructor(name:string, type:string, imageFile:string)</h4></code>
                         <p>Creates the game object. Requires a name and type keys and file name of an image to render.</p>
-                        <p>"name" and "type" are arbitrary - these are for various systems to use so they can interact with game objects -- either an individual game object or all particular game objects (such as all "crates"). "imageFile" is an image that will be located in the html folder of your final build.</p><
+                        <p>"name" and "type" are arbitrary - 
+                        these are for various systems to use so they can 
+                        interact with game objects -- either an individual 
+                        game object or all particular game objects (such as all 
+                        "crates"). "imageFile" is an image that will be located 
+                        in the html folder of your final build.</p>
                     </div>
                 
-                
                     <div class="code-block">
-                        <code class="prettyprint lang-javascript"><h4>function hasGravity(gravity:number = 9):GameObject</h4></code>
-                        <p>Applies a gravitation pull on an object. This is completely optional and the value you wish to apply is your choice too.</p>
+                        <code class="prettyprint lang-javascript">
+                            <h4>function hasGravity(gravity:number = 9):GameObject</h4>
+                        </code>
+                        <p>Applies a gravitation pull on an object. 
+                           This is completely optional and the value 
+                           you wish to apply is your choice too.</p>
                     </div>
                     
                     <div class="code-block">
@@ -78,7 +86,9 @@
                     </div>
                     
                     <div class="code-block">
-                        <code class="prettyprint lang-javascript"><h4>function collidesWith(name:string):GameObject</h4></code>
+                        <code class="prettyprint lang-javascript">
+                            <h4>function collidesWith(name:string):GameObject</h4>
+                        </code>
                         <p>Used to create a list of game objects that you would like this game object to collide with.</p>
                     </div>
                 
