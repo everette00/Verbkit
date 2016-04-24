@@ -7,6 +7,7 @@
 
         <link rel="stylesheet" href="../stylesheets/styles.css">
         <link rel="stylesheet" href="../stylesheets/github-light.css">
+        <link rel="stylesheet" href="../stylesheets/my-style.css" />
         
         <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
         
@@ -64,7 +65,7 @@
                 
                     <code class="prettyprint lang-javascript"><h4>function hasGravity(gravity:number = 9):GameObject</h4></code>
                     <p>Applies a gravitation pull on an object. This is completely optional and the value you wish to apply is your choice too.</p>
-                
+                  
                     <code class="prettyprint lang-javascript">
                         <code class="nocode">// index.ts</code><br/>
                         var crate:GameObject = new GameObject("badass", "Crate", "img/crate.png");<br/>
@@ -72,15 +73,24 @@
                     </code><br/><br/>
                     <p>The above will apply a gravitation pull on the object, which will move the object downwards 9 pixels every update.</p><br/>
                 
-                    <code class="prettyprint lang-javascript"><h4>function collidesWith(name:string):GameObject</h4></code>
-                    <p>Used to create a list of game objects that you would like this game object to collide with.</p>
-                    <code class="prettyprint lang-javascript">
-                        <code class="nocode">// index.ts</code><br/>
-                        var crate:GameObject = new GameObject("badass", "Crate", "img/crate.png");<br/>
-                        var ball:GameOBject = new GameObject("red", "Ball", "img/ball.png");<br/>
-                        crate.collidesWith("red");
-                    </code><br/><br/>
-                    <p>Now the crate and any ball named "red" will collide.</p><br/>
+                    
+                    <div class="code-block">
+                        <code><h4>hasWeapon(weapon:Weapon)</h4></code>
+                        <p>Gives a weapon to the gameobject.</p>
+                        <p>weapon: the weapon that the object is to have.</p>
+                    </div>
+                    
+                    <div class="code-block">
+                        <code class="prettyprint lang-javascript"><h4>function collidesWith(name:string):GameObject</h4></code>
+                        <p>Used to create a list of game objects that you would like this game object to collide with.</p>
+                        <code class="prettyprint lang-javascript">
+                            <code class="nocode">// index.ts</code><br/>
+                            var crate:GameObject = new GameObject("badass", "Crate", "img/crate.png");<br/>
+                            var ball:GameOBject = new GameObject("red", "Ball", "img/ball.png");<br/>
+                            crate.collidesWith("red");
+                        </code><br/><br/>
+                        <p>Now the crate and any ball named "red" will collide.</p><br/>
+                    </div>
                 
                     <code class="prettyprint lang-javascript"><h4>function collidesWithAll(objectType:string):GameObject</h4></code>
                     <p>Similar to the collidesWith function, but works on all types of a particular object.</p>
@@ -94,21 +104,6 @@
                 
                     <code class="prettyprint lang-javascript"><h4>function update():void</h4></code>
                     <p>Handles the updating logic of the game object. Modify this if you would like to add your own custom update logic.</p>
-                
-                
-                <h4>Player</h4>
-                    <code class="prettyprint lang-javascript"><h4>function hasKeyMovement(x:number, y:number, withKey:number):Player</h4></code>
-                    <p>Adds to a list of "input movements" that allow the game to know that when a key has been pressed to move the player.</p>
-                    <code class="prettyprint lang-javascript">
-                        <code class="nocode">// index.ts</code><br/>
-                        var player:Player = new Player("badass", "img/player.png");<br/>
-                        player.hasKeyMovement(-3, 0, Keys.left);<br/>
-                        player.hasKeyMovement(3, 0, Keys.right);<br/>
-                        player.hasKeyMovement(0, -3, Keys.up);<br/>
-                        player.hasKeyMovement(0, 3, Keys.down);
-                    </code><br/><br/>
-                    <p>Will move "player" in four different directions using the up, down, left and right keys.</p><br/>
-                <h4>NPC</h4>
             </section>
             <footer>
                 <p>This project is maintained by <a href="https://github.com/everette00">everette00</a></p>
