@@ -62,14 +62,14 @@
                                 type:"get",
                                 data:"text",
                                 success: function(s) {
-                                    console.log(s);                                    
+                                    $("section#doc-pane").html(s);                                   
                                 }
                             });
                         });
                     </script>
                 </div>
             </header>
-            <section>
+            <section id="doc-pane">
                 <h3>Welcome to Verbkit - 2D Game Development Simplified</h3>
                 <p>Verbkit is a tool for simplifying the development of 2D games. Verbkit leverages Typescript and <a href="http://www.pixijs.com/">pixijs</a>
                 to remove much of the work needed to build a 2D game, and is comprised of several components to give you building-blocks for building games.</p>
