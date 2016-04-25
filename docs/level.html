@@ -1,194 +1,131 @@
-<!doctype html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="chrome=1">
-        <title>Verbkit Docs - Level</title>
+<h1>Level</h1>
+<h3>Overview</h3>
+<p>This script contains the logic defines what a level is, as well as how a level should be updated. For example, a level can be comprised of boundaries, enemies and collectables, 
+    but possibly none of those. There are various "has" functions inside of the class Level that will allow you to add specific objects to your level (hasWall, for example).</p>
 
-        <link rel="stylesheet" href="../stylesheets/styles.css">
-        <link rel="stylesheet" href="../stylesheets/github-light.css">
-        <link rel="stylesheet" href="http://everette00.github.io/verbkit/stylesheets/my-style.css" />
-
-        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+<h3>Functions</h3>
+<div class="code-block">
+    <code class="prettyprint lang-javascript"><h4>function has(gameObject:GameObject):Level</h4></code>
+    <p>Adds a GameObject to the level and returns the level.</p>
+    <code class="prettyprint lang-javascript">
+        <span class="nocode">// index.ts</span><br/>
+        var friendly:NPC = new NPC("img/someFriendlyCharacter.png");
+        hasLevel("world-1").has(friendly);<br/><br/>
         
-        <meta name="viewport" content="width=device-width">
-        <!--[if lt IE 9]>
-        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-    </head>
-    <body>
-        <div class="wrapper">
-            <header>
-                <h1>Verbkit - Level.ts</h1>
-                <p class="view"><a href="https://github.com/everette00/verbkit">View the Project on GitHub <small>everette00/verbkit</small></a></p>
-                <div style="margin-top: 1rem;">
-                     <h4 style="line-height: .1rem;">Docs</h4>
-                    <a href="http://everette00.github.io/verbkit/docs/game.html">Game</a><br/>
-                    <a href="http://everette00.github.io/verbkit/docs/camera.html">Camera</a><br/>
-                    <a href="http://everette00.github.io/verbkit/docs/level.html">Level</a><br/>
-                    <a href="http://everette00.github.io/verbkit/docs/gameobject.html">GameObject</a><br/>
-                    <a href="http://everette00.github.io/verbkit/docs/gameobjects/player.html" style="margin-left:1rem;">Player</a><br/>
-                    <a href="http://everette00.github.io/verbkit/docs/gameobjects/npc.html" style="margin-left:1rem;">NPC</a><br/>
-                    <a href="http://everette00.github.io/verbkit/docs/gameobjects/opponent.html" style="margin-left:1rem;">Opponent</a><br/>
-                    
-                    <a href="http://everette00.github.io/verbkit/docs/collectable.html">Collectable</a><br/>
-                    <a href="http://everette00.github.io/verbkit/docs/collectables/coin.html" style="margin-left:1rem;">Coin</a><br/>
-                    <a href="http://everette00.github.io/verbkit/docs/collectables/key.html" style="margin-left:1rem;">Key</a><br/>
-                    
-                    <a href="http://everette00.github.io/verbkit/docs/collidable.html">Collidable</a><br/>
-                    <a href="http://everette00.github.io/verbkit/docs/collidables/conveyorbelt.html" style="margin-left:1rem;">Conveyorbelt</a><br/>
-                    <a href="http://everette00.github.io/verbkit/docs/collidables/springboard.html" style="margin-left:1rem;">Springboard</a><br/>
-                    
-                    <a href="http://everette00.github.io/verbkit/docs/interactable.html">Interactable</a><br/>
-                    <a href="http://everette00.github.io/verbkit/docs/interactables/button.html" style="margin-left:1rem;">Button</a><br/>
-                    <a href="http://everette00.github.io/verbkit/docs/interactables/lever.html" style="margin-left:1rem;">Lever</a><br/>
-                    
-                    <a href="http://everette00.github.io/verbkit/docs/boundary.html">Boundary</a><br/>
-                    <a href="http://everette00.github.io/verbkit/docs/boundaries/wall.html" style="margin-left:1rem;">Wall</a><br/>
-                    <a href="http://everette00.github.io/verbkit/docs/boundaries/ceiling.html" style="margin-left:1rem;">Ceiling</a><br/>
-                    <a href="http://everette00.github.io/verbkit/docs/boundaries/platform.html" style="margin-left:1rem;">Platform</a><br/>
-                    <a href="http://everette00.github.io/verbkit/docs/boundaries/elevator.html" style="margin-left:1rem;">Elevator</a><br/>
-                </div>
-            </header>
-            <section>
-                <h3>Overview</h3>
-                <p>This script contains the logic defines what a level is, as well as how a level should be updated. For example, a level can be comprised of boundaries, enemies and collectables, 
-                    but possibly none of those. There are various "has" functions inside of the class Level that will allow you to add specific objects to your level (hasWall, for example).</p>
+        <span class="nocode">// alternatively</span><br/>
+        level("world-1").has(new NPC("img/anotherFriendly.png"));
+    </code>
+</div>
                 
-                <h3>Functions</h3>
-                <div class="code-block">
-                    <code class="prettyprint lang-javascript"><h4>function has(gameObject:GameObject):Level</h4></code>
-                    <p>Adds a GameObject to the level and returns the level.</p>
-                    <code class="prettyprint lang-javascript">
-                        <span class="nocode">// index.ts</span><br/>
-                        var friendly:NPC = new NPC("img/someFriendlyCharacter.png");
-                        hasLevel("world-1").has(friendly);<br/><br/>
-                        
-                        <span class="nocode">// alternatively</span><br/>
-                        level("world-1").has(new NPC("img/anotherFriendly.png"));
-                    </code>
-                </div>
-                
-                <div class="code-block">
-                    <code><h4>hasTextDisplay(display:(string | Pointer<number | string>), x:number, 
-                        y:number, style:PIXI.TextStyle = undefined, background:string = undefined):Level</h4>
-                    </code>
-                    <p>Places text on the screen specific to this level.</p>
-                    <p>display - the information to draw on the screen.</p>
-                    <p>x - the x-position of the text</p>
-                    <p>y - the y-position of the text</p>
-                    <p>style: the style of the text to display (font size, font type, color)</p>
-                    <p>bacgrkohd: the file name of an image the display behind the text.</p>
-                    
-                    <p>Example:</p>
-                    <code>
-                        level("world 1").hasTextDisplay("world 1", 200, 32, {fill:white});
-                    </code> 
-                </div>
-                
-                <div class="code-block">
-                    <code class="prettyprint lang-javascript">
-                        <h4>function hasWall(x:number, y:number, width:number, height:number):Level</h4>
-                    </code>
-                    <p>Adds a wall-boundary to the level and returns the level.</p>
-                    <code class="prettyprint lang-javascript">
-                        <span class="nocode">// index.ts</span><br/>
-                        level("world-1").hasWall(0, 0, 32, level("world-1").getHeight());
-                    </code>
-                </div>
-                
-                <div class="code-block">
-                    <code class="prettyprint lang-javascript">
-                        <h4>function hasCeiling(x:number, y:number, width:number, height:number):Level</h4></code>
-                    <p>Adds a ceiling-boundary to the level and returns the level.</p>
-                    <code class="prettyprint lang-javascript">
-                        <span class="nocode">// index.ts</span><br/>
-                        level("world-1").hasCeiling(0, 0, 32, level("world-1").getHeight());
-                    </code>
-                </div>
-                
-                <div class="code-block">
-                    <code class="prettyprint lang-javascript"><h4>function hasFloor(x:number, y:number, width:number, height:number):Level</h4></code>
-                    <p>Adds a floor-boundary to the level and returns the level.</p>
-                    <code class="prettyprint lang-javascript">
-                        <span class="nocode">// index.ts</span><br/>
-                        level("world-1").hasFloor(0, 0, level("world-1").getWidth(), 32);
-                    </code>
-                </div>
-                
-                <div class="code-block">
-                    <code class="prettyprint lang-javascript"><h4>function hasPlatform(x:number, y:number, width:number, height:number):Level</h4></code>
-                    <p>Adds a platform-boundary to the level, which is similar to a floor.</p>
-                    <code class="prettyprint lang-javascript">
-                        <span class="nocode">// index.ts</span><br/>
-                        level("world-1").hasPlatform(0, 0, 128, 16);
-                    </code>
-                </div>
-                
-                <div class="code-block">
-                    <code class="prettyprint lang-javascript"><h4>function hasDoor(x:number, y:number, width:number, height:number):Level</h4></code>
-                    <p>Adds a door-boundary to the level and returns the level.</p>
-                    <code class="prettyprint lang-javascript">
-                        <span class="nocode">// index.ts</span><br/>
-                        level("world-1").hasDoor(0, 0, 128, 32);
-                    </code>
-                </div>
-                
-                <div class="code-block">
-                    <code class="prettyprint lang-javascript"><h4>function hasSpringBoard(x:number, y:number, width:number, height:number, power:number):Level</h4></code>
-                    <p>Adds a springboard to the level and returns the level. Information on SpringBoards are part of part of the Collidable documentation.</p>
-                    <code class="prettyprint lang-javascript">
-                        <span class="nocode">// index.ts</span><br/>
-                        <span class="nocode">/* create a spingboard that will launch an object vertically upwards with a power of 8 */</span><br/>
-                        level("world-1").hasSpringBoard(0, 0, level("world-1").getWidth(), 32, 8);
-                    </code>
-                </div>
-                
-                <div class="code-block">
-                    <code class="prettyprint lang-javascript">
-                        <h4>function hasConveyorBelt(x:number, y:number, width:number, height:number, speed:number):Level</h4>
-                    </code>
-                    <p>Adds a conveyorbelt to the level and returns the level. Like springboards, you can find out more in the Collidable documentation.</p>
-                    <code class="prettyprint lang-javascript">
-                        <span class="nocode">// index.ts</span><br/>
-                        <span class="nocode">/* a conveyor belt that moves an object to the right by one unit every update. */</span><br/>
-                        level("world-1").hasConveyorBelt(0, 0, level("world-1").getWidth(), 32, 1);<br/><br/>
-                        
-                        <span class="nocode">// alternatively...</span><br/>
-                        level("world-1").hasConveyorBelt(0, 0, level("world-1").getWidth(), 32, -1);
-                    </code>
-                </div>
-                
-                <div class="code-block">
-                    <code class="prettyprint lang-javascript"><h4>function hasCollectables(collectable:Collectables[]):Level</h4></code>
-                    <p>Adds a number of collectables to the level. Information on collectables can be found in the Collectable documentation.</p>
-                    <code class="prettyprint lang-javascript">
-                        <span class="nocode">// index.ts</span><br/>
-                        level("world-1").hasCollectables(
-                        <br/>&nbsp;&nbsp;&nbsp;&nbsp;[coin(200, 300), coin(200, 350), coin(200, 400)]<br/>
-                        );
-                    </code><br/><br/><br/>
-                    <p>This will add three coins to the game that are placed in a horizontal line.</p>
-                </div>
-                
-                <div class="code-block">
-                    <code>
-                        <h4>hasLever(x:number, y:number, width:number, height:number):Level</h4>
-                        <p>Places a lever in the level.</p>
-                        <p>x: the x-position of the lever.</p>
-                        <p>y: the y-position of the lever.</p>
-                        <p>width: the width of the lever.</p>
-                        <p>height: the height of the lever.</p>
-                    </code>
-                </div>
-            </section>
-            
-            <footer>
-                <p>This project is maintained by <a href="https://github.com/everette00">everette00</a></p>
-                <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-            </footer>
-        </div>
-        <script src="javascripts/scale.fix.js"></script>
+<div class="code-block">
+    <code><h4>hasTextDisplay(display:(string | Pointer<number | string>), x:number, 
+        y:number, style:PIXI.TextStyle = undefined, background:string = undefined):Level</h4>
+    </code>
+    <p>Places text on the screen specific to this level.</p>
+    <p>display - the information to draw on the screen.</p>
+    <p>x - the x-position of the text</p>
+    <p>y - the y-position of the text</p>
+    <p>style: the style of the text to display (font size, font type, color)</p>
+    <p>bacgrkohd: the file name of an image the display behind the text.</p>
+    
+    <p>Example:</p>
+    <code>
+        level("world 1").hasTextDisplay("world 1", 200, 32, {fill:white});
+    </code> 
+</div>
 
-    </body>
-</html>
+<div class="code-block">
+    <code class="prettyprint lang-javascript">
+        <h4>function hasWall(x:number, y:number, width:number, height:number):Level</h4>
+    </code>
+    <p>Adds a wall-boundary to the level and returns the level.</p>
+    <code class="prettyprint lang-javascript">
+        <span class="nocode">// index.ts</span><br/>
+        level("world-1").hasWall(0, 0, 32, level("world-1").getHeight());
+    </code>
+</div>
+
+<div class="code-block">
+    <code class="prettyprint lang-javascript">
+        <h4>function hasCeiling(x:number, y:number, width:number, height:number):Level</h4></code>
+    <p>Adds a ceiling-boundary to the level and returns the level.</p>
+    <code class="prettyprint lang-javascript">
+        <span class="nocode">// index.ts</span><br/>
+        level("world-1").hasCeiling(0, 0, 32, level("world-1").getHeight());
+    </code>
+</div>
+
+<div class="code-block">
+    <code class="prettyprint lang-javascript"><h4>function hasFloor(x:number, y:number, width:number, height:number):Level</h4></code>
+    <p>Adds a floor-boundary to the level and returns the level.</p>
+    <code class="prettyprint lang-javascript">
+        <span class="nocode">// index.ts</span><br/>
+        level("world-1").hasFloor(0, 0, level("world-1").getWidth(), 32);
+    </code>
+</div>
+
+<div class="code-block">
+    <code class="prettyprint lang-javascript"><h4>function hasPlatform(x:number, y:number, width:number, height:number):Level</h4></code>
+    <p>Adds a platform-boundary to the level, which is similar to a floor.</p>
+    <code class="prettyprint lang-javascript">
+        <span class="nocode">// index.ts</span><br/>
+        level("world-1").hasPlatform(0, 0, 128, 16);
+    </code>
+</div>
+
+<div class="code-block">
+    <code class="prettyprint lang-javascript"><h4>function hasDoor(x:number, y:number, width:number, height:number):Level</h4></code>
+    <p>Adds a door-boundary to the level and returns the level.</p>
+    <code class="prettyprint lang-javascript">
+        <span class="nocode">// index.ts</span><br/>
+        level("world-1").hasDoor(0, 0, 128, 32);
+    </code>
+</div>
+
+<div class="code-block">
+    <code class="prettyprint lang-javascript"><h4>function hasSpringBoard(x:number, y:number, width:number, height:number, power:number):Level</h4></code>
+    <p>Adds a springboard to the level and returns the level. Information on SpringBoards are part of part of the Collidable documentation.</p>
+    <code class="prettyprint lang-javascript">
+        <span class="nocode">// index.ts</span><br/>
+        <span class="nocode">/* create a spingboard that will launch an object vertically upwards with a power of 8 */</span><br/>
+        level("world-1").hasSpringBoard(0, 0, level("world-1").getWidth(), 32, 8);
+    </code>
+</div>
+
+<div class="code-block">
+    <code class="prettyprint lang-javascript">
+        <h4>function hasConveyorBelt(x:number, y:number, width:number, height:number, speed:number):Level</h4>
+    </code>
+    <p>Adds a conveyorbelt to the level and returns the level. Like springboards, you can find out more in the Collidable documentation.</p>
+    <code class="prettyprint lang-javascript">
+        <span class="nocode">// index.ts</span><br/>
+        <span class="nocode">/* a conveyor belt that moves an object to the right by one unit every update. */</span><br/>
+        level("world-1").hasConveyorBelt(0, 0, level("world-1").getWidth(), 32, 1);<br/><br/>
+        
+        <span class="nocode">// alternatively...</span><br/>
+        level("world-1").hasConveyorBelt(0, 0, level("world-1").getWidth(), 32, -1);
+    </code>
+</div>
+
+<div class="code-block">
+    <code class="prettyprint lang-javascript"><h4>function hasCollectables(collectable:Collectables[]):Level</h4></code>
+    <p>Adds a number of collectables to the level. Information on collectables can be found in the Collectable documentation.</p>
+    <code class="prettyprint lang-javascript">
+        <span class="nocode">// index.ts</span><br/>
+        level("world-1").hasCollectables(
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;[coin(200, 300), coin(200, 350), coin(200, 400)]<br/>
+        );
+    </code><br/><br/><br/>
+    <p>This will add three coins to the game that are placed in a horizontal line.</p>
+</div>
+
+<div class="code-block">
+    <code>
+        <h4>hasLever(x:number, y:number, width:number, height:number):Level</h4>
+        <p>Places a lever in the level.</p>
+        <p>x: the x-position of the lever.</p>
+        <p>y: the y-position of the lever.</p>
+        <p>width: the width of the lever.</p>
+        <p>height: the height of the lever.</p>
+    </code>
+</div>
