@@ -58,7 +58,7 @@
                         $("a.link").on("click", function(e) {
                             e.preventDefault();
                             
-                            $.ajax(this.attr("href"), {
+                            $.ajax($(this).attr("href"), {
                                 type:"get",
                                 data:"text",
                                 success: function(s) {
