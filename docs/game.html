@@ -1,41 +1,42 @@
+<h1>Game</h1>
 <h3>Overview</h3>
-    <p>This is, for all intents and purposes, the starting point of your game. 
-        From here, your game will update levels and render their contents. 
-        One function in particular to use from this script is the "hasLevel" 
-        function - it is how you add levels to your game. Another notable 
-        function is the "level" function that will return a specified level.</p>
+<p>This is, for all intents and purposes, the starting point of your game. 
+    From here, your game will update levels and render their contents. 
+    One function in particular to use from this script is the "hasLevel" 
+    function - it is how you add levels to your game. Another notable 
+    function is the "level" function that will return a specified level.</p>
+
+<h3>Functions</h3>
     
-    <h3>Functions</h3>
-    
-    <div class="code-block">
-        <code class="prettyprint lang-javascript"><h4>function hasLevel(levelName:string, width:number, height:number):Level</h4></code>
-        <p>This will add a new level to the list of all levels in your game and will return that level.
-           From here, you can choose to chain functions contained within the Level class 
-           to define further properties of your level, such as what is inside of it.</p>
-           
-        <p>Say that we wanted to create a new level that is really large and really tall. 
-            We want this level to be a part of a platformer, and the typical size of 
-            assets are something like 32x32 pixels. So to create a level like the one 
-            we want, here is an example:</p>
-            
-        <code class="prettyprint lang-javascript">
-            <span class="nocode">// index.ts</span><br/>
-            hasLevel("world-1", 16000, 4000);
-        </code>
+<div class="code-block">
+    <code class="prettyprint lang-javascript"><h4>function hasLevel(levelName:string, width:number, height:number):Level</h4></code>
+    <p>This will add a new level to the list of all levels in your game and will return that level.
+        From here, you can choose to chain functions contained within the Level class 
+        to define further properties of your level, such as what is inside of it.</p>
         
-        <p>What this did was create a level titled "world-1", and it is 16000x4000 pixels in size. 
-            From here, maybe we want to add walls and floors? Or even collectables and enemies. 
-            The use of function chaining will allow you to easily, once a level has been created, 
-            begin tacking on content. Head over to the Level documentation to see the possibilities
-            of adding content to a level.</p>
-    </div>
+    <p>Say that we wanted to create a new level that is really large and really tall. 
+        We want this level to be a part of a platformer, and the typical size of 
+        assets are something like 32x32 pixels. So to create a level like the one 
+        we want, here is an example:</p>
+        
+    <code class="prettyprint lang-javascript">
+        <span class="nocode">// index.ts</span><br/>
+        hasLevel("world-1", 16000, 4000);
+    </code>
     
-    <div>
-        <code class="prettyprint" style="margin-top: 1rem;"><h4>function level(levelName:string):Level</h4></code>
-        <p>This will return the specified level, allowing you to use it similarly to the function above - to add additional content to your level.</p> 
-        <p>If we were in some other script file and we wanted to access our "world-1" level, then we could do this:</p>
-        <code class="prettyprint lang-javascript">
-            var world1:Level = level("world-1");<br/>
-            <span class="nocode">// do some stuff here with world1</span>
-        </code>
-    </div>
+    <p>What this did was create a level titled "world-1", and it is 16000x4000 pixels in size. 
+        From here, maybe we want to add walls and floors? Or even collectables and enemies. 
+        The use of function chaining will allow you to easily, once a level has been created, 
+        begin tacking on content. Head over to the Level documentation to see the possibilities
+        of adding content to a level.</p>
+</div>
+
+<div class="code-block">
+    <code class="prettyprint" style="margin-top: 1rem;"><h4>function level(levelName:string):Level</h4></code>
+    <p>This will return the specified level, allowing you to use it similarly to the function above - to add additional content to your level.</p> 
+    <p>If we were in some other script file and we wanted to access our "world-1" level, then we could do this:</p>
+    <code class="prettyprint lang-javascript">
+        var world1:Level = level("world-1");<br/>
+        <span class="nocode">// do some stuff here with world1</span>
+    </code>
+</div>
