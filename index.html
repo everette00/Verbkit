@@ -7,10 +7,14 @@
 
         <link rel="stylesheet" href="stylesheets/styles.css">
         <link rel="stylesheet" href="stylesheets/github-light.css">
+        <link rel="stylesheet" href="stylesheets/my-style.css" />
         <meta name="viewport" content="width=device-width">
         <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
+        
+        <script src="https://code.jquery.com/jquery-2.2.3.min.js"
+         integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
     </head>
     <body>
         <div class="wrapper">
@@ -19,31 +23,50 @@
                 <p class="view"><a href="https://github.com/everette00/verbkit">View the Project on GitHub <small>everette00/verbkit</small></a></p>
                 <div style="margin-top: 1rem;">
                     <h4 style="line-height: .1rem;">Docs</h4>
-                    <a href="http://everette00.github.io/verbkit/docs/game.html">Game</a><br/>
-                    <a href="http://everette00.github.io/verbkit/docs/camera.html">Camera</a><br/>
-                    <a href="http://everette00.github.io/verbkit/docs/level.html">Level</a><br/>
-                    <a href="http://everette00.github.io/verbkit/docs/gameobject.html">GameObject</a><br/>
-                    <a href="http://everette00.github.io/verbkit/docs/gameobjects/player.html" style="margin-left:1rem;">Player</a><br/>
-                    <a href="http://everette00.github.io/verbkit/docs/gameobjects/npc.html" style="margin-left:1rem;">NPC</a><br/>
-                    <a href="http://everette00.github.io/verbkit/docs/gameobjects/opponent.html" style="margin-left:1rem;">Opponent</a><br/>
+                    <a class="link" href="http://everette00.github.io/verbkit/docs/game.html">Game</a><br/>
+                    <a class="link" href="http://everette00.github.io/verbkit/docs/camera.html">Camera</a><br/>
+                    <a class="link" href="http://everette00.github.io/verbkit/docs/level.html">Level</a><br/>
+                    <a class="link" href="http://everette00.github.io/verbkit/docs/gameobject.html">GameObject</a><br/>
+                    <a class="link" href="http://everette00.github.io/verbkit/docs/gameobjects/player.html">Player</a><br/>
+                    <a class="link" href="http://everette00.github.io/verbkit/docs/gameobjects/npc.html">NPC</a><br/>
+                    <a class="link" href="http://everette00.github.io/verbkit/docs/gameobjects/opponent.html">Opponent</a><br/>
                     
-                    <a href="http://everette00.github.io/verbkit/docs/collectable.html">Collectable</a><br/>
-                    <a href="http://everette00.github.io/verbkit/docs/collectables/coin.html" style="margin-left:1rem;">Coin</a><br/>
-                    <a href="http://everette00.github.io/verbkit/docs/collectables/key.html" style="margin-left:1rem;">Key</a><br/>
+                    <a class="link" href="http://everette00.github.io/verbkit/docs/collectable.html">Collectable</a><br/>
+                    <a class="link" href="http://everette00.github.io/verbkit/docs/collectables/key.html">Key</a><br/>
                     
-                    <a href="http://everette00.github.io/verbkit/docs/collidable.html">Collidable</a><br/>
-                    <a href="http://everette00.github.io/verbkit/docs/collidables/conveyorbelt.html" style="margin-left:1rem;">Conveyorbelt</a><br/>
-                    <a href="http://everette00.github.io/verbkit/docs/collidables/springboard.html" style="margin-left:1rem;">Springboard</a><br/>
+                    <a class="link" href="http://everette00.github.io/verbkit/docs/collidable.html">Collidable</a><br/>
+                    <a class="link" href="http://everette00.github.io/verbkit/docs/collidables/conveyorbelt.html">Conveyorbelt</a><br/>
+                    <a class="link" href="http://everette00.github.io/verbkit/docs/collidables/springboard.html">Springboard</a><br/>
                     
-                    <a href="http://everette00.github.io/verbkit/docs/interactable.html">Interactable</a><br/>
-                    <a href="http://everette00.github.io/verbkit/docs/interactables/button.html" style="margin-left:1rem;">Button</a><br/>
-                    <a href="http://everette00.github.io/verbkit/docs/interactables/lever.html" style="margin-left:1rem;">Lever</a><br/>
+                    <a class="link" href="http://everette00.github.io/verbkit/docs/interactable.html">Interactable</a><br/>
+                    <a class="link" href="http://everette00.github.io/verbkit/docs/interactables/button.html">Button</a><br/>
+                    <a class="link" href="http://everette00.github.io/verbkit/docs/interactables/lever.html">Lever</a><br/>
                     
-                    <a href="http://everette00.github.io/verbkit/docs/boundary.html">Boundary</a><br/>
-                    <a href="http://everette00.github.io/verbkit/docs/boundaries/wall.html" style="margin-left:1rem;">Wall</a><br/>
-                    <a href="http://everette00.github.io/verbkit/docs/boundaries/ceiling.html" style="margin-left:1rem;">Ceiling</a><br/>
-                    <a href="http://everette00.github.io/verbkit/docs/boundaries/platform.html" style="margin-left:1rem;">Platform</a><br/>
-                    <a href="http://everette00.github.io/verbkit/docs/boundaries/elevator.html" style="margin-left:1rem;">Elevator</a><br/>
+                    <a class="link" href="http://everette00.github.io/verbkit/docs/boundary.html">Boundary</a><br/>
+                    <a class="link" href="http://everette00.github.io/verbkit/docs/boundaries/wall.html">Wall</a><br/>
+                    <a class="link" href="http://everette00.github.io/verbkit/docs/boundaries/ceiling.html">Ceiling</a><br/>
+                    <a class="link" href="http://everette00.github.io/verbkit/docs/boundaries/platform.html">Platform</a><br/>
+                    <a class="link" href="http://everette00.github.io/verbkit/docs/boundaries/elevator.html">Elevator</a><br/>
+                    
+                    <a class="link" href="http://everette00.github.io/verbkit/docs/weapon.html">Weapon</a><br/>
+                    <a class="link" href="http://everette00.github.io/verbkit/docs/weapons/gun.html">Gun</a><br/>
+                    <a class="link" href="http://everette00.github.io/verbkit/docs/weapons/projectile.html">Projectile</a><br/>
+                    
+                    <a class="link" href="http://everette00.github.io/verbkit/docs/ui.html">UI</a><br/>
+                    <a class="link" href="http://everette00.github.io/verbkit/docs/ui/textui.html">TextUI</a>
+                    <script>
+                        $("a.link").on("click", function(e) {
+                            e.preventDefault();
+                            
+                            $.ajax(this.attr("href"), {
+                                type:"get",
+                                data:"text",
+                                success: function(s) {
+                                    console.log(s);                                    
+                                }
+                            });
+                        });
+                    </script>
                 </div>
             </header>
             <section>
