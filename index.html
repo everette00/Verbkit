@@ -54,19 +54,6 @@
                     
                     <a class="link" href="http://everette00.github.io/verbkit/docs/ui.html">UI</a><br/>
                     <a class="link" href="http://everette00.github.io/verbkit/docs/ui/textui.html">TextUI</a>
-                    <script>
-                        $("a.link").on("click", function(e) {
-                            e.preventDefault();
-                            
-                            $.ajax($(this).attr("href"), {
-                                type:"get",
-                                data:"text",
-                                success: function(s) {
-                                    $("section#doc-pane").html(s);                                   
-                                }
-                            });
-                        });
-                    </script>
                 </div>
             </header>
             <section id="doc-pane">
@@ -80,6 +67,18 @@
             </footer>
         </div>
         <script src="javascripts/scale.fix.js"></script>
-
+        <script>
+            $("a.link").on("click", function(e) {
+                e.preventDefault();
+                
+                $.ajax($(this).attr("href"), {
+                    type:"get",
+                    data:"text",
+                    success: function(s) {
+                        $("section#doc-pane").html(s);                                   
+                    }
+                });
+            });
+        </script>
     </body>
 </html>
