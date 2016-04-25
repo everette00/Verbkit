@@ -18,10 +18,10 @@
     </head>
     <body>
         <div class="wrapper">
-            <header>
+            <header style="position:relative;">
                 <h1>Verbkit</h1>
                 <p class="view"><a href="https://github.com/everette00/verbkit">View the Project on GitHub <small>everette00/verbkit</small></a></p>
-                <div style="margin-top: 1rem;">
+                <div style="margin-top: 1rem; padding-bottom:3rem;">
                     <h4 style="line-height: .1rem;">Docs</h4>
                     <a class="link" href="http://everette00.github.io/verbkit/docs/game.html">Game</a><br/>
                     <a class="link" href="http://everette00.github.io/verbkit/docs/camera.html">Camera</a><br/>
@@ -56,15 +56,13 @@
                     <a class="link" href="http://everette00.github.io/verbkit/docs/ui/textui.html">TextUI</a>
                 </div>
             </header>
-            <section id="doc-pane">
+            <section>
+                <div id="doc-pan">
                 <h3>Welcome to Verbkit - 2D Game Development Simplified</h3>
                 <p>Verbkit is a tool for simplifying the development of 2D games. Verbkit leverages Typescript and <a href="http://www.pixijs.com/">pixijs</a>
                 to remove much of the work needed to build a 2D game, and is comprised of several components to give you building-blocks for building games.</p>
+                </div>
             </section>
-            <footer>
-                <p>This project is maintained by <a href="https://github.com/everette00">everette00</a></p>
-                <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-            </footer>
         </div>
         <script src="javascripts/scale.fix.js"></script>
         <script>
@@ -75,7 +73,7 @@
                     type:"get",
                     data:"text",
                     success: function(s) {
-                        $("section#doc-pane").html(s);                                   
+                        $("div#doc-pane").html(s);                                   
                     }
                 });
             });
