@@ -1,6 +1,49 @@
 <h1>Camera</h1>
 <h3>Overview</h3>
-<p>A camera is for following an object around on worlds larger than the game viewport. 
-    There are many options for how the camera should follow an object.</p>
+<p>A camera is for following an object. 
+There are a few options for how the 
+camera should follow an object.</p>
     
 <h3>Functions</h3>
+
+<div class="code-block">
+    <code><h4>focusOn(gameObject:GameObject):Camera</h4></code>
+    <p>Tells the camera what it should follow</p>
+</div>
+
+<div class="code-block">
+    <code><h4>zoomIn(zoom:number):Camera</h4></code>
+    <p>Has the camera zoom in by a specified value (in percentage, i.e, .5 is 50% more zoomed)</p>
+</div>
+
+<div class="code-block">
+    <code><h4>zoomOut(zoom:number):Camera</h4></code>
+    <p>Has the camera zoom out by a specified value (in percentage, i.e, .5 is 50% more zoomed out)</p>
+</div>
+
+<div class="code-block">
+    <code><h4>centerCamera():Camera</h4></code>
+    <p>Puts the center of the camera on the center of the focus.</p>
+</div>
+
+<div class="code-block">
+    <code><h4>leashCamera(width:number, height:number):Camera (not working)</h4></code>
+    <p>The camera will stay where it is until the focus moves outside of the freedom of the camera.
+        For example, leashCamera(5, 0) will give the focus five pixels of horizontal freedom before
+        the camera begins to move with it.
+    </p>
+</div>
+
+<div class="code-block">
+    <code><h4>verticallyLocked():Camera</h4></code>
+    <p>The camera will remain locked on a horizontal "rail", preventing it from
+        moving up and down.</p>
+</div>
+<div class="code-block">
+    <code><h4>horizontallyLocked():Camera</h4></code>
+    <p>The camera will remain locked on a vertical "rail", preventing it from
+        moving left and right.</p>
+</div>
+
+
+

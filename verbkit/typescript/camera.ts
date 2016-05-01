@@ -27,6 +27,12 @@ class Camera {
         this.viewPort.scale.y += zoom;
         return this;
     }
+    
+    zoomOut(zoom:number) {
+        this.viewPort.scale.x -= zoom;
+        this.viewPort.scale.y -= zoom;
+        return this;
+    }
         
     centerCamera() { 
         this.cameraOptions[CameraOption.Centered] = true;
