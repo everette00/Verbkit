@@ -1,14 +1,64 @@
 <h3>Overview</h3>
-<p>This script defines what a boundary is and what kind of boundaries exist. 
-    If you would like to add more types of boundaries for your game, 
-    this is the place to do so.</p>
-
+<p>Boundaries define areas in the game that cannot be passed. They are the walls,
+    ceilings, floors and other similar objects in your game.
+    The logic for how boundaries work is split across several classes, all of which
+    don't do anything other than push objects in some direction.</p>
+ 
 <h3>Classes</h3>
+<div class="code-block">
 <h3>Boundary</h3>
-<h3>Wall</h3>
-<h3>Ceiling</h3>
-<h3>Floor</h3>
-<h3>Platform</h3>
-<h3>Door</h3>
+</div>
 
-<h3>Functions</h3>
+<div class="code-block">
+    <h3>Wall</h3>
+    <p>Walls are designed to push an object horizontally if it comes into contact
+        with it. You use a wall like this:</p>
+     <code>
+         // index.ts <br/>
+         // place a wall at (0, 0) with a dimensions of 64x200 pixels.
+         level("world-one").hasWall(0, 0, 64, 200);<br/>
+     </code>
+     
+</div>
+
+<div class="code-block">
+    <h3>Ceiling</h3>
+    <p>Ceilings push objects downards when they come into contact with them.</p>
+    <code>
+        // index.ts <br/>
+        // place a ceiling at (0, 0) with a dimensions of 200x64 pixels.
+        level("world-one").hasWall(0, 0, 200, 64);<br/>
+    </code>
+</div>
+
+<div class="code-block">
+    <h3>Floor</h3>
+    <p>Floors push objects upwards.</p>
+    <code>
+        // index.ts <br/>
+        // place a floor at (0, 400) with a dimensions of 200x64 pixels.
+        level("world-one").hasWall(0, 400, 200, 64);<br/>
+    </code>
+</div>
+
+<div class="code-block">
+    <h3>Platform</h3>
+    <p>Platforms work similar to floors, but with some minor tweaks to the way its
+        logic works.</p>
+    <code>
+        // index.ts <br/>
+        // place a platform at (120, 230) with a dimensions of 64x8 pixels.
+        level("world-one").hasWall(120, 230, 64, 8);<br/>
+    </code>
+</div>
+
+<div class="code-block">
+    <h3>Door</h3>
+    <p>Doors push in all directions and are meant to be disabled for passage.
+        You can set this up by any way you'd like.</p>
+     <code>
+        // index.ts <br/>
+        // place a door at (120, 230) with a dimensions of 16x32 pixels.
+        level("world-one").hasWall(120, 230, 16, 32);<br/>
+    </code>
+</div>
