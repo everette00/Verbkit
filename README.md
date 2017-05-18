@@ -32,3 +32,5 @@ verbkit run "projectName"
 ```
 
 This will build the js file that contains your game and open a browser window up for the game to be played. However, this is not an interesting game. Head to the documentation page for all of the API features available to you: http://everette00.github.io/verbkit/
+
+Please Note: Verbkit is not complete and development has halted for the project. Please feel free to pull the project and continue if you'd like.
